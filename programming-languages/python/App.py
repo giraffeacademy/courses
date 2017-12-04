@@ -378,50 +378,49 @@ book1.read_book()
 
 
 #Inheritance
-class Chef
+class Chef{
 
-     attr_accessor :name, :age
-     def initialize(name, age)
-          @name = name
-          @age = age
-     end
+  constructor(name, age){
+       this.name = name;
+       this.age = age;
+  }
 
-     def make_chicken()
-          puts "The chef makes chicken"
-     end
+  makeChicken(){
+       document.write("The chef makes chicken <br>");
+  }
 
-     def make_salad()
-          puts "The chef makes salad"
-     end
+  makeSalad(){
+       document.write("The chef makes salad <br>");
+  }
 
-     def make_special_dish()
-          puts "The chef makes a special dish"
-     end
-end
+  makeSpecialDish(){
+       document.write("The chef makes a special dish <br>");
+  }
+}
 
-class ItalianChef < Chef
+class ItalianChef extends Chef{
 
-     attr_accessor :country_of_origin
-     def initialize(name, age, country_of_origin)
-          @country_of_origin = country_of_origin
-          super(name, age)
-     end
+  constructor(name, age, countryOfOrigin){
+       super(name, age);
+       this.countryOfOrigin = countryOfOrigin;
+  }
 
-     def make_pasta()
-          puts "The chef makes pasta"
-     end
+  makePasta(){
+       document.write("The chef makes pasta <br>");
+  }
 
-     def make_special_dish()
-          puts "The chef makes chicken parm"
-     end
-end
+  // overridden
+  makeSpecialDish(){
+       document.write("The chef makes chicken parm <br>");
+  }
+}
 
-my_chef = Chef.new("Gordon Ramsay", 50)
-my_chef.make_chicken()
+var myChef = new Chef("Gordon Ramsay", 50);
+myChef.makeChicken();
 
-my_italian_chef = ItalianChef.new("Massimo Bottura", 55, "Italy")
-my_italian_chef.make_chicken()
-puts my_italian_chef.age;
+var myItalianChef = new ItalianChef("Massimo Bottura", 55, "Italy");
+myItalianChef.makeChicken();
+document.write(myItalianChef.age);
 
 
 # I N T E R P R E T E R
