@@ -378,49 +378,41 @@ book1.read_book()
 
 
 #Inheritance
-class Chef{
+ class Chef:
 
-  constructor(name, age){
-       this.name = name;
-       this.age = age;
-  }
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
 
-  makeChicken(){
-       document.write("The chef makes chicken <br>");
-  }
 
-  makeSalad(){
-       document.write("The chef makes salad <br>");
-  }
+    def make_chicken(self):
+        print("The chef makes chicken")
 
-  makeSpecialDish(){
-       document.write("The chef makes a special dish <br>");
-  }
-}
+    def make_salad(self):
+        print("The chef makes salad")
 
-class ItalianChef extends Chef{
+    def make_special_dish(self):
+        print("The chef makes bbq ribs")
 
-  constructor(name, age, countryOfOrigin){
-       super(name, age);
-       this.countryOfOrigin = countryOfOrigin;
-  }
+class ItalianChef(Chef):
 
-  makePasta(){
-       document.write("The chef makes pasta <br>");
-  }
+    def __init__(self, name, age, countryOfOrigin):
+        self.countryOfOrigin = countryOfOrigin
+        super().__init__(name, age)
 
-  // overridden
-  makeSpecialDish(){
-       document.write("The chef makes chicken parm <br>");
-  }
-}
+    def make_pasta(self):
+        print("The chef makes pasta")
 
-var myChef = new Chef("Gordon Ramsay", 50);
-myChef.makeChicken();
+    def make_special_dish(self):
+        print("The chef makes chicken parm")
 
-var myItalianChef = new ItalianChef("Massimo Bottura", 55, "Italy");
-myItalianChef.makeChicken();
-document.write(myItalianChef.age);
+
+myChef = Chef("Gordon Ramsay", 50)
+myChef.make_chicken()
+
+myItalianChef = ItalianChef("Massimo Bottura", 55, "Italy")
+myItalianChef.make_chicken()
+print(myItalianChef.age);
 
 
 # I N T E R P R E T E R
