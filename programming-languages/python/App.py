@@ -377,32 +377,51 @@ book1.read_book()
 
 
 
+#Inheritance
+class Chef
 
-# Inheritance
+     attr_accessor :name, :age
+     def initialize(name, age)
+          @name = name
+          @age = age
+     end
 
-class Chef:
-    def make_chicken(self):
-        print("The chef makes chicken")
+     def make_chicken()
+          puts "The chef makes chicken"
+     end
 
-    def make_salad(self):
-        print("The chef makes salad")
+     def make_salad()
+          puts "The chef makes salad"
+     end
 
-    def make_special_dish(self):
-        print("The chef makes bbq ribs")
+     def make_special_dish()
+          puts "The chef makes a special dish"
+     end
+end
 
-class ItalianChef(Chef):
-    def make_pasta(self):
-        print("The chef makes pasta")
+class ItalianChef < Chef
 
-    def make_special_dish(self):
-        print("The chef makes chicken parm")
+     attr_accessor :country_of_origin
+     def initialize(name, age, country_of_origin)
+          @country_of_origin = country_of_origin
+          super(name, age)
+     end
 
+     def make_pasta()
+          puts "The chef makes pasta"
+     end
 
-myChef = Chef()
-myChef.make_chicken()
+     def make_special_dish()
+          puts "The chef makes chicken parm"
+     end
+end
 
-myItalianChef = ItalianChef()
-myItalianChef.make_chicken()
+my_chef = Chef.new("Gordon Ramsay", 50)
+my_chef.make_chicken()
+
+my_italian_chef = ItalianChef.new("Massimo Bottura", 55, "Italy")
+my_italian_chef.make_chicken()
+puts my_italian_chef.age;
 
 
 # I N T E R P R E T E R

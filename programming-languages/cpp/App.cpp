@@ -417,6 +417,15 @@ void main()
 
      class Chef{
           public:
+
+               string name;
+               int age;
+
+               Chef(string name, int age){
+                    this->name = name;
+                    this->age = age;
+               }
+
                void makeChicken(){
                     cout << "The chef makes chicken" << endl;
                }
@@ -432,6 +441,13 @@ void main()
 
      class ItalianChef : public Chef{
           public:
+
+               string countryOfOrigin;
+
+               ItalianChef(string name, int age, string countryOfOrigin) : Chef(name, age){
+                    this->countryOfOrigin = countryOfOrigin;
+               }
+
                void makePasta(){
                     cout << "The chef makes pasta" << endl;
                }
@@ -442,11 +458,12 @@ void main()
                }
      };
 
-     Chef myChef;
+     Chef myChef("Gordon Ramsay", 50);
      myChef.makeChicken();
 
-     ItalianChef myItalianChef;
+     ItalianChef myItalianChef("Massimo Bottura", 55, "Italy");
      myItalianChef.makeChicken();
+     cout << myItalianChef.age << endl;
 
 
 

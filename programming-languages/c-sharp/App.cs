@@ -409,38 +409,60 @@ class App
 
            // Inheritance
 
-           // public class Chef
-           // {
-           //     public void MakeChicken()
-           //     {
-           //       Console.WriteLine("The chef makes chicken");
-           //     }
-           //
-           //     public void MakeSalad()
-           //     {
-           //       Console.WriteLine("The chef makes salad");
-           //     }
-           //
-           //     public virtual void MakeSpecialDish()
-           //     {
-           //       Console.WriteLine("The chef makes a special dish");
-           //     }
-           // }
-           // public class ItalianChef : Chef
-           // {
-           //     public void MakePasta(){
-           //       Console.WriteLine("The Chef make's past");
-           //     }
-           //     public override void MakeSpecialDish(){
-           //       Console.WriteLine("The chef makes chicken parm");
-           //     }
-           // }
+           public class Chef
+           {
 
-           Chef myChef = new Chef();
-           myChef.makeChicken();
+               public String name;
+               public int age;
 
-           ItalianChef myItalianChef = new ItalianChef();
-           myItalianChef.makeChicken();
+               public Chef(String name, int age)
+               {
+                   this.name = name;
+                   this.age = age;
+               }
+
+               public void MakeChicken()
+               {
+                   Console.WriteLine("The chef makes chicken");
+               }
+
+               public void MakeSalad()
+               {
+                   Console.WriteLine("The chef makes salad");
+               }
+
+               public virtual void MakeSpecialDish()
+               {
+                   Console.WriteLine("The chef makes a special dish");
+               }
+           }
+           public class ItalianChef : Chef
+           {
+
+               public String countryOfOrigin;
+
+               public ItalianChef(String name, int age, String countryOfOrigin)
+                : base(name, age)
+               {
+                   this.countryOfOrigin = countryOfOrigin;
+               }
+
+               public void MakePasta()
+               {
+                   Console.WriteLine("The Chef make's past");
+               }
+               public override void MakeSpecialDish()
+               {
+                   Console.WriteLine("The chef makes chicken parm");
+               }
+           }
+
+           Chef myChef = new Chef("Gordon Ramsay", 50);
+           myChef.MakeChicken();
+
+           ItalianChef myItalianChef = new ItalianChef("Massimo Bottura", 55, "Italy");
+           myItalianChef.MakeChicken();
+           Console.WriteLine(myItalianChef.countryOfOrigin);
 
 
 

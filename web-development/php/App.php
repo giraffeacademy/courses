@@ -1,4 +1,4 @@
-<?php
+ <?php
 
 /*
 Php is a server side scripting language, designed primarily for use on web servers,
@@ -434,6 +434,15 @@ echo $book1->getTitle();
 // Inheritance
 
 class Chef{
+
+     public $name;
+     public $age;
+
+     function __construct($name, $age){
+          $this->name = $name;
+          $this->age = $age;
+     }
+
      function makeChicken(){
           echo "The chef makes chicken";
      }
@@ -445,6 +454,14 @@ class Chef{
      }
 };
 class ItalianChef extends Chef{
+
+     public $countryOfOrigin;
+
+     function __construct($name, $age, $countryOfOrigin){
+          $this->countryOfOrigin = $countryOfOrigin;
+          parent::__construct($name, $age);
+     }
+
      function makePasta(){
           echo "The chef makes pasta";
      }
@@ -454,11 +471,12 @@ class ItalianChef extends Chef{
 };
 
 
-$chef = new Chef();
+$chef = new Chef("Gordon Ramsay", 50);
 $chef->makeChicken();
 echo "<br>";
-$italianChef = new ItalianChef();
+$italianChef = new ItalianChef("Massimo Bottura", 55, "Italy");
 $italianChef->makeChicken();
+echo "<br> $italianChef->countryOfOrigin";
 
 
 

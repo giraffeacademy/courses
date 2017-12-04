@@ -432,36 +432,55 @@ class App {
 
           // Inheritance
 
-          // public class Chef{
-          //      public void makeChicken(){
-          //           System.out.println("The chef makes chicken");
-          //      }
-          //
-          //      public void makeSalad(){
-          //           System.out.println("The chef makes salad");
-          //      }
-          //
-          //      public void makeSpecialDish(){
-          //           System.out.println("The chef makes a special dish");
-          //      }
-          // }
+          class Chef{
 
-          // public class ItalianChef extends Chef{
-          //      public void makePasta(){
-          //           System.out.println("The chef makes pasta");
-          //      }
-          //
-          //      @Override
-          //      public void makeSpecialDish(){
-          //           System.out.println("The chef makes chicken parm");
-          //      }
-          // }
+               public String name;
+               public int age;
 
-          Chef myChef = new Chef();
+               public Chef(String name, int age){
+                    this.name = name;
+                    this.age = age;
+               }
+
+
+               public void makeChicken(){
+                    System.out.println("The chef makes chicken");
+               }
+
+               public void makeSalad(){
+                    System.out.println("The chef makes salad");
+               }
+
+               public void makeSpecialDish(){
+                    System.out.println("The chef makes a special dish");
+               }
+          }
+
+          class ItalianChef extends Chef{
+
+               public String countryOfOrigin;
+
+               public ItalianChef(String name, int age, String countryOfOrigin){
+                    super(name, age);
+                    this.countryOfOrigin = countryOfOrigin;
+               }
+
+               public void makePasta(){
+                    System.out.println("The chef makes pasta");
+               }
+
+               @Override
+               public void makeSpecialDish(){
+                    System.out.println("The chef makes chicken parm");
+               }
+          }
+
+          Chef myChef = new Chef("Gordon Ramsay", 50);
           myChef.makeChicken();
 
-          ItalianChef myItalianChef = new ItalianChef();
+          ItalianChef myItalianChef = new ItalianChef("Massimo Bottura", 55, "Italy");
           myItalianChef.makeChicken();
+          System.out.println(myItalianChef.age);
 
 
 

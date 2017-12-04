@@ -360,6 +360,109 @@ var x = y + 9;
 
 
 
+
+
+// Classes & Objects
+class Book{
+     constructor(title, author){
+          this.title = title;
+          this.author = author;
+     }
+
+     readBook(){
+          document.write("Reading " + this.title + " by " + this.author);
+     }
+}
+
+var book1 = new Book("Harry Potter", "JK Rowling");
+
+document.write(book1.title + "<br>");
+book1.readBook();
+
+
+
+
+
+
+
+// Getters & Setters
+class Book{
+     constructor(title, author){
+          this.title = title;
+          this.author = author;
+     }
+
+     get title(){
+          document.write("<p>getting</p>");
+          return this._title;
+     }
+
+     set title(title){
+          document.write("<p>setting </p>");
+          this._title = title;
+     }
+
+     readBook(){
+          document.write("Reading " + this.title + " by " + this.author);
+     }
+}
+
+var book1 = new Book("Harry Potter", "JK Rowling");
+
+document.write(book1.title + "<br>");
+book1.readBook();
+
+
+
+
+
+// Inheritance
+class Chef{
+
+     constructor(name, age){
+          this.name = name;
+          this.age = age;
+     }
+
+     makeChicken(){
+          document.write("The chef makes chicken <br>");
+     }
+
+     makeSalad(){
+          document.write("The chef makes salad <br>");
+     }
+
+     makeSpecialDish(){
+          document.write("The chef makes a special dish <br>");
+     }
+}
+
+class ItalianChef extends Chef{
+
+     constructor(name, age, countryOfOrigin){
+          super(name, age);
+          this.countryOfOrigin = countryOfOrigin;
+     }
+
+     makePasta(){
+          document.write("The chef makes pasta <br>");
+     }
+
+     // overridden
+     makeSpecialDish(){
+          document.write("The chef makes chicken parm <br>");
+     }
+}
+
+var myChef = new Chef("Gordon Ramsay", 50);
+myChef.makeChicken();
+
+var myItalianChef = new ItalianChef("Massimo Bottura", 55, "Italy");
+myItalianChef.makeChicken();
+document.write(myItalianChef.age);
+
+
+
 /* Notes
 
 Javascript is tricky because unlike most programming languages it doesn't
